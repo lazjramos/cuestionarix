@@ -1,0 +1,22 @@
+body {
+    margin-top: 10px;
+}
+
+#estadisticas ul {
+    list-style: none;
+    padding: 0px;
+}
+
+#estadisticas ul li {
+    color: rgb(49, 112, 143);
+    font-weight: bold;
+}
+
+#estadisticas ul li span {
+    float: right;
+    margin-right: 10px
+}
+
+#evaluacion .pregunta {
+    margin-bottom: 30px;
+}
