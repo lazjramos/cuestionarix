@@ -12,4 +12,22 @@ class AnswerValue extends Model
      * @var string
      */
     protected $table = 'answer_values';
+
+    /**
+    *Get the question.
+    *
+    *@return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
+    public function question(){
+        return $this->belongTo('App\Question');
+    }
+
+    /**
+    *Get the answer.
+    *
+    *@return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
+    public function answer(){
+        return $this->belongTo('App\Answer');
+    }
 }

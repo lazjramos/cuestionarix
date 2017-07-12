@@ -12,4 +12,13 @@ class Question extends Model
      * @var string
      */
     protected $table = 'questions';
+
+    /**
+     * Get the values of the answer.
+     */
+    public function answerValues()
+    {
+        return $this->hasMany('App\AnswerValue');
+    }
+
 }
