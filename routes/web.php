@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'TestController@index');
+Route::post('answers', 'TestController@store');
+Route::post('answers/corrects', 'TestController@verify');

@@ -19,13 +19,10 @@
                         <h3 class="panel-title">Estad&iacute;sticas</h3>
                     </div>
                     <div class="panel panel-body">
-                        <ul>
+                        <ul id="answers">
                         @foreach($answers as $answer)
-                        <li>Intento {{ $answer->id }} <span>4/5</span></li>
+                        <li><a href="#" class="answerLink" data-answerId="{{ $answer->id }}">Intento {{ $answer->id }} <span>{{ $answer->success }}/5</span></a></li>
                         @endforeach
-                            {{-- <li>Intento 1 <span>4/5</span></li>
-                            <li>Intento 2 <span>3/5</span></li>
-                            <li>Intento 3 <span>2/5</span></li> --}}
                         </ul>
                     </div>
                 </div>
