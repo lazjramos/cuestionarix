@@ -40,25 +40,25 @@
                             <h4>{{ $question->text }}</h4>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="pregunta1Option" id="pregunta1Option1" value="option1" checked>
+                                    <input type="radio" name="{{$question->name}}" id="{{$question->name}}" value="1" checked>
                                     A) {{ $question->option1 }}
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="pregunta1Option" id="pregunta1Option2" value="option2">
+                                    <input type="radio" name="{{$question->name}}" id="{{$question->name}}" value="2">
                                     B) {{ $question->option2 }}
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="pregunta1Option" id="pregunta1Option3" value="option2">
+                                    <input type="radio" name="{{$question->name}}" id="{{$question->name}}" value="3">
                                     C) {{ $question->option3 }}
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="pregunta1Option" id="pregunta1Option4" value="option2">
+                                    <input type="radio" name="{{$question->name}}" id="{{$question->name}}" value="4">
                                     D) {{ $question->option4 }}
                                 </label>
                             </div> 

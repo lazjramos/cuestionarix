@@ -15,6 +15,7 @@ class QuestionTableSeeder extends Seeder
         $questions = [
             [
                 'text' => 'Texto de la pregunta 1',
+                'name' => 'pregunta1',
                 'option1' => 'Opcion 11',
                 'option2' => 'Opcion 12',
                 'option3' => 'Opcion 13',
@@ -23,6 +24,7 @@ class QuestionTableSeeder extends Seeder
             ],
             [
                 'text' => 'Texto de la pregunta 2',
+                'name' => 'pregunta2',
                 'option1' => 'Opcion 21',
                 'option2' => 'Opcion 22',
                 'option3' => 'Opcion 23',
@@ -31,6 +33,7 @@ class QuestionTableSeeder extends Seeder
             ],
             [
                 'text' => 'Texto de la pregunta 3',
+                'name' => 'pregunta3',
                 'option1' => 'Opcion 31',
                 'option2' => 'Opcion 32',
                 'option3' => 'Opcion 33',
@@ -39,6 +42,7 @@ class QuestionTableSeeder extends Seeder
             ],
             [
                 'text' => 'Texto de la pregunta 4',
+                'name' => 'pregunta4',
                 'option1' => 'Opcion 41',
                 'option2' => 'Opcion 42',
                 'option3' => 'Opcion 43',
@@ -47,6 +51,7 @@ class QuestionTableSeeder extends Seeder
             ],
             [
                 'text' => 'Texto de la pregunta 5',
+                'name' => 'pregunta5',
                 'option1' => 'Opcion 51',
                 'option2' => 'Opcion 52',
                 'option3' => 'Opcion 53',
