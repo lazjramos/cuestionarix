@@ -33,6 +33,16 @@
                         <h3 class="panel-title">Evaluaci&oacute;n</h3>
                     </div>
                     <div class="panel panel-body">
+                    @if(count($answers) == 0)
+                        <div id="visualizacion">
+                            <h3>C&oacute;mo quieres listar</h3>
+
+                            <button type="button" class="btn btn-primary">Todas</button>
+
+                            <button type="button" class="btn btn-success">De una a una</button>
+                        </div>
+                    @endif
+
                     @foreach($questions as $question)
                         <div class="pregunta">
                             <h4>{{ $question->text }}</h4>

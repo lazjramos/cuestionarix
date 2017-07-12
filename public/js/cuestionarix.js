@@ -7,6 +7,10 @@ $(document).ready(function() {
 
     $('#sendButton').on('click', function(e) {
         e.preventDefault();
+        var divs = $('.radio');
+        $("div.radio").each(function() {
+            $(this).css('background-color', '#fff');
+        });
         var options = {
             'pregunta1': $('input:radio[name=pregunta1]:checked').val(),
             'pregunta2': $('input:radio[name=pregunta2]:checked').val(),
@@ -25,6 +29,7 @@ $(document).ready(function() {
             data: 'data=' + JSON.stringify(options),
             success: function(answer) {
                 $("ul#answers").append('<li><a href="#" class="answerLink" data-answerid="' + answer.id + '">Intento ' + answer.id + ' <span>' + answer.success + '/5</span></a></li>');
+                $("div#visualizacion").css('display', 'none');
             },
             error: function(MLHttpRequest, textStatus, errorThrown) {
                 console.log(errorThrown);
