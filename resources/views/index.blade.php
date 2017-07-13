@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-3">
                 <div class="panel panel-info" id="estadisticas">
                     <div class="panel-heading">
                         <h3 class="panel-title">Estad&iacute;sticas</h3>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-sm-9">
                 <div class="panel panel-info" id="evaluacion">
                     <div class="panel-heading">
                         <h3 class="panel-title">Evaluaci&oacute;n</h3>
