@@ -54,7 +54,6 @@ class TestController extends Controller
         foreach($arrayInputs as $key => $value)
         {
             $question = Question::where('name','=',$key)->first();
-            $answerToAssociate = Answer::find($answer->id);
 
             $answerValue = new AnswerValue();
             $answerValue->question_id = $question->id;

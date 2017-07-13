@@ -30,6 +30,7 @@ $(document).ready(function() {
             success: function(answer) {
                 $("ul#answers").append('<li><a href="#" class="answerLink" data-answerid="' + answer.id + '">Intento ' + answer.id + ' <span>' + answer.success + '/5</span></a></li>');
                 $("div#visualizacion").css('display', 'none');
+                $("html, body").animate({ scrollTop: 0 }, "slow");
             },
             error: function(MLHttpRequest, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -53,8 +54,6 @@ $(document).ready(function() {
             url: 'answers/corrects',
             data: 'data=' + jQuery(this).data("answerid"),
             success: function(answers) {
-                console.log(answers);
-
                 answers.forEach(function(element) {
                     $('input:radio[name=' + element.name + '][value=' + element.true_answer + ']').parent().parent().css('background-color', 'rgb(49, 112, 143)');
 
