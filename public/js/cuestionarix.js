@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // Setting up the ajax header.
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -7,13 +8,13 @@ $(document).ready(function() {
 
     // Storing data
     $(document).on('click', '#sendButton', function(e) {
-
         e.preventDefault();
         var divs = $('.radio');
         $("div.radio").each(function() {
             $(this).css('background-color', '#fff');
         });
 
+        // Making the objet to send it.
         var options = {
             'pregunta1': $('input:radio[name=pregunta1]:checked').val(),
             'pregunta2': $('input:radio[name=pregunta2]:checked').val(),
@@ -22,13 +23,13 @@ $(document).ready(function() {
             'pregunta5': $('input:radio[name=pregunta5]:checked').val(),
         };
 
-        // validate all options
+        // validating all options.
         if (options.pregunta1 === undefined || options.pregunta2 === undefined || options.pregunta3 === undefined || options.pregunta4 === undefined || options.pregunta5 === undefined) {
             alert('Debe responder todas las preguntas');
             return false;
         }
 
-        // Peticion para guardar los resultados
+        // Request to save the answers.
         $.ajax({
             async: true,
             type: 'POST',
@@ -52,12 +53,11 @@ $(document).ready(function() {
     // Showing an especific answer
     $(document).on('click', '.answerLink', function(e) {
         e.preventDefault();
-        var divs = $('.radio');
         $("div.radio").each(function() {
             $(this).css('background-color', '#fff');
         });
 
-        // Request to show a answer
+        // Request to show an answer
         $.ajax({
             async: true,
             type: 'POST',
@@ -81,18 +81,21 @@ $(document).ready(function() {
         });
     });
 
+    // Show all questions section
     $(document).on('click', '#all-questions-btn', function(e) {
         e.preventDefault();
         $('#all-questions').css('display', 'block');
         $('#one-by-one-questions').css('display', 'none');
     });
 
+    // Show one by one section
     $(document).on('click', '#one-by-one-btn', function(e) {
         e.preventDefault();
         $('#all-questions').css('display', 'none');
         $('#one-by-one-questions').css('display', 'block');
     });
 
+    // Basic setup of Bootstrap Wizard 
     $('#rootwizard').bootstrapWizard();
 
 });

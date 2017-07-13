@@ -9,6 +9,12 @@ use App\AnswerValue;
 
 class TestController extends Controller
 {
+    /**
+    * Display the index page.
+    * GET /
+    *
+    * @return Response
+    */
     public function index(){
         $questions = Question::all();
         $answers = Answer::all();
@@ -35,14 +41,16 @@ class TestController extends Controller
             }
         }
 
-        
-
         return view('index')
             ->with('questions',$questions)
             ->with('answers', $outAnswers);
     }
 
-
+    /**
+     * Store new element.
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request){
         $success = 0;
         $inputs = json_decode($request->input('data'));
@@ -73,6 +81,11 @@ class TestController extends Controller
                ];
     }
 
+    /**
+     * Verify an answer
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function verify(Request $request){
         $inputs = $request->input('data');
         $questions = Question::all();
