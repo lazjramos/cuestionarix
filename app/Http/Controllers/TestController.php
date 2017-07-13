@@ -54,12 +54,11 @@ class TestController extends Controller
     public function store(Request $request){
         $success = 0;
         $inputs = json_decode($request->input('data'));
-        $arrayInputs = (array) $inputs;
 
         $answer = new Answer();
         $answer->save();
 
-        foreach($arrayInputs as $key => $value)
+        foreach($inputs as $key => $value)
         {
             $question = Question::where('name','=',$key)->first();
 
