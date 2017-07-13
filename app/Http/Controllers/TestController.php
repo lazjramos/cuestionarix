@@ -15,8 +15,8 @@ class TestController extends Controller
         $outAnswers = [];
         
         if(count($answers) > 0 ){
-            $success = 0;
             foreach($answers as $answer){
+                $success = 0;
                 $answerValues = AnswerValue::where('answer_id','=',$answer->id)->get();
 
                 if(count($answerValues)>0){
