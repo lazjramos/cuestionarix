@@ -5,12 +5,15 @@ $(document).ready(function() {
         }
     });
 
-    $('#sendButton').on('click', function(e) {
+    // Storing data
+    $(document).on('click', '#sendButton', function(e) {
+
         e.preventDefault();
         var divs = $('.radio');
         $("div.radio").each(function() {
             $(this).css('background-color', '#fff');
         });
+
         var options = {
             'pregunta1': $('input:radio[name=pregunta1]:checked').val(),
             'pregunta2': $('input:radio[name=pregunta2]:checked').val(),
@@ -18,6 +21,12 @@ $(document).ready(function() {
             'pregunta4': $('input:radio[name=pregunta4]:checked').val(),
             'pregunta5': $('input:radio[name=pregunta5]:checked').val(),
         };
+
+        // validate all options
+        if (options.pregunta1 === undefined || options.pregunta2 === undefined || options.pregunta3 === undefined || options.pregunta4 === undefined || options.pregunta5 === undefined) {
+            alert('Debe responder todas las preguntas');
+            return false;
+        }
 
         // Peticion para guardar los resultados
         $.ajax({
@@ -30,6 +39,8 @@ $(document).ready(function() {
             success: function(answer) {
                 $("ul#answers").append('<li><a href="#" class="answerLink" data-answerid="' + answer.id + '">Intento ' + answer.id + ' <span>' + answer.success + '/5</span></a></li>');
                 $("div#visualizacion").css('display', 'none');
+                $('#all-questions').css('display', 'block');
+                $('#one-by-one-questions').css('display', 'none');
                 $("html, body").animate({ scrollTop: 0 }, "slow");
             },
             error: function(MLHttpRequest, textStatus, errorThrown) {
@@ -38,6 +49,7 @@ $(document).ready(function() {
         });
     });
 
+    // Showing an especific answer
     $(document).on('click', '.answerLink', function(e) {
         e.preventDefault();
         var divs = $('.radio');
@@ -45,7 +57,7 @@ $(document).ready(function() {
             $(this).css('background-color', '#fff');
         });
 
-        // Peticion para Mostrar los resultados
+        // Request to show a answer
         $.ajax({
             async: true,
             type: 'POST',
@@ -68,4 +80,19 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(document).on('click', '#all-questions-btn', function(e) {
+        e.preventDefault();
+        $('#all-questions').css('display', 'block');
+        $('#one-by-one-questions').css('display', 'none');
+    });
+
+    $(document).on('click', '#one-by-one-btn', function(e) {
+        e.preventDefault();
+        $('#all-questions').css('display', 'none');
+        $('#one-by-one-questions').css('display', 'block');
+    });
+
+    $('#rootwizard').bootstrapWizard();
+
 });
